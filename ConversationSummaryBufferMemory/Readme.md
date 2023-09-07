@@ -75,8 +75,8 @@ Q. それらのプログラムミング言語の学びやすさの順位づけ�
 
 → 会話の履歴を要約したものになる。（AIにとっての自然言語：英語になる、日本語とどちらが良いかは評価必要）
 
-> あなたは人間と会話するAIです。
-> 過去の会話履歴はこちらを参照: System: 
+> - あなたは人間と会話するAIです。
+> - 過去の会話履歴はこちらを参照: System: 
 > The human asks what the AI thinks of python. The AI responds that
 > python is a general-purpose programming language developed in 1991 by
 > Guido van Rossum and is characterized by its simple and readable
@@ -91,8 +91,8 @@ Q. それらのプログラムミング言語の学びやすさの順位づけ�
 > of CPU and large data processing. Overall, Python is a
 > beginner-friendly language with flexibility for a variety of uses, but
 > other languages should be considered if performance is important.
-> Human: それらのプログラムミング言語の学びやすさの順位づけをしてください。
-> AI:
+> - Human: それらのプログラムミング言語の学びやすさの順位づけをしてください。
+> - AI:
             
 
 A.
@@ -136,8 +136,8 @@ A.
 
 Q. あなたはどの言語が好みですか？
 
-> あなたは人間と会話するAIです。
-> 過去の会話履歴はこちらを参照: System: 
+> - あなたは人間と会話するAIです。
+> - 過去の会話履歴はこちらを参照: System: 
 > The human asks what the AI thinks of python. The AI responds that
 > python is a general-purpose programming language developed in 1991 by
 > Guido van Rossum and is characterized by its simple and readable
@@ -154,8 +154,8 @@ Q. あなたはどの言語が好みですか？
 > beginner-friendly and PHP being the most difficult. Overall, Python is
 > a beginner-friendly language with flexibility for a variety of uses,
 > but other languages should be considered if performance is important.
-> Human: あなたはどの言語が好みですか？
-> AI:
+> - Human: あなたはどの言語が好みですか？
+> - AI:
 
 A.
 
