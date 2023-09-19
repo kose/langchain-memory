@@ -54,7 +54,8 @@ class Lang_Predictor:
         #
         LLM = OpenAI(
             # model_name        = "text-davinci-003", # OpenAIモデル名
-            model_name        = "gpt-3.5-turbo",    # OpenAIモデル名
+            # model_name        = "gpt-3.5-turbo",    # OpenAIモデル名
+            model_name        = "gpt-3.5-turbo-0613",    # OpenAIモデル名
             temperature       = 0,                  # 出力する単語のランダム性（0から2の範囲） 0であれば毎回返答内容固定
             n                 = 1,                  # いくつの返答を生成するか           
             )
