@@ -17,13 +17,21 @@ if 'OPENAI_API_KEY' not in os.environ:
     print("環境変数 OPENAI_API_KEY がセットされていません。")
     exit(-1)
 
+
 #################################################################
+# from dotenv import load_dotenv
+# load_dotenv()
 
 import openai
 from langchain.llms import OpenAI
 from langchain import LLMChain, PromptTemplate
 from langchain.memory import ConversationBufferWindowMemory
-    
+
+openai.api_type = os.getenv("OPENAI_API_TYPE")
+openai.api_base = os.getenv("OPENAI_API_BASE")
+openai.api_version = os.getenv("OPENAI_API_VERSION")
+openai.api_key = os.getenv("OPENAI_API_KEY")
+ 
 class Lang_Predictor:
 
     def __init__(self, verbose=False, chat_depth=0):
@@ -54,9 +62,8 @@ class Lang_Predictor:
         # LLM作成
         #
         LLM = OpenAI(
-            # model_name        = "text-davinci-003", # OpenAIモデル名
-            # model_name        = "gpt-3.5-turbo",    # OpenAIモデル名
-            model_name        = "gpt-3.5-turbo-0613",    # OpenAIモデル名
+            model_name        = "gpt-3.5-turbo-16k",    # OpenAIモデル名
+            engine            = "exam1",
             temperature       = 0,                  # 出力する単語のランダム性（0から2の範囲） 0であれば毎回返答内容固定
             n                 = 1,                  # いくつの返答を生成するか           
             )
