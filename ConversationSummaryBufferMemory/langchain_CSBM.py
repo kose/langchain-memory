@@ -29,6 +29,9 @@ openai.api_base = os.getenv("OPENAI_API_BASE")
 openai.api_version = os.getenv("OPENAI_API_VERSION")
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
+engine = os.getenv("OPENAI_API_ENGINE")
+model_name = os.getenv("OPENAI_API_MODEL")
+
 class Lang_Predictor:
 
     def __init__(self, verbose=False):
@@ -58,8 +61,8 @@ class Lang_Predictor:
         # LLM作成
         #
         LLM = OpenAI(
-            model_name        = "gpt-3.5-turbo-16k",    # OpenAIモデル名
-            engine            = "exam1",
+            model_name        = model_name,
+            engine            = engine,
             temperature       = 0,                  # 出力する単語のランダム性（0から2の範囲） 0であれば毎回返答内容固定
             n                 = 1,                  # いくつの返答を生成するか           
             )
