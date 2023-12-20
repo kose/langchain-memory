@@ -1,5 +1,7 @@
 # Q and A とその時使われた prompt
 
+## 要約のプロンプトが英語の場合(default)。→ 要約も英語になる。
+
 ## 0
 
 ```python
@@ -23,12 +25,13 @@ Q. pythonとはなんですか？
 
 A.
 
-> Pythonは、汎用のプログラミング言語です。1991年にGuido van Rossumによっ
-> て開発され、シンプルで読みやすい構文を特徴と しています。Pythonは多く
-> のプラットフォームで動作し、さまざまな用途に利用されています。データ分
-> 析、ウェブ開発、人工 知能、科学計算など、さまざまな分野で広く使われて
-> います。また、Pythonには豊富なライブラリやフレームワークが存在し、 開
-> 発の効率を高めることができます。
+> Pythonは、汎用のプログラミング言語です。Guido van Rossumによって開発さ
+> れ、1991年に最初にリリースされました。Pythonは、シンプルで読みやすい構
+> 文を持ち、多くのプログラミングタスクをサポートしています。また、オープ
+> ンソースであり、幅広いコミュニティによってサポートされています。Python
+> は、ウェブ開発、データ分析、人工知能、機械学習 など、さまざまな分野で
+> 広く使用されています。
+
 
 ## 2
 
@@ -36,136 +39,291 @@ Q. 他のプログラムミング言語と比較してください。
 
 > - あなたは人間と会話するAIです。
 > - 過去の会話履歴はこちらを参照: Human: pythonとはなんですか？
-> AI: Pythonは、汎用のプログラミング言語です。1991年にGuido van Rossumに
-> よって開発され、シンプルで読みやすい構文を特 徴としています。Pythonは
-> 多くのプラットフォームで動作し、さまざまな用途に利用されています。デー
-> タ分析、ウェブ開発、 人工知能、科学計算など、さまざまな分野で広く使わ
-> れています。また、Pythonには豊富なライブラリやフレームワークが存在 し、
-> 開発の効率を高めることができます。
+> AI: Pythonは、汎用のプログラミング言語です。Guido van Rossumによって開
+> 発され、1991年に最初にリリースされまし た。Pythonは、シンプルで読みや
+> すい構文を持ち、多くのプログラミングタスクをサポートしています。また、
+> オープン ソースであり、幅広いコミュニティによってサポートされています。
+> Pythonは、ウェブ開発、データ分析、人工知能、機 械学習など、さまざまな
+> 分野で広く使用されています。
 > - Human: 他のプログラムミング言語と比較してください。
 > - AI:
             
 A.
 
 > Pythonは他のプログラミング言語と比較していくつかの特徴があります。まず、
-> Pythonはシンプルで読みやすい構文を持ってお り、初心者にも理解しやすい
-> です。また、Pythonは動的型付け言語であり、変数の型を宣言する必要があり
-> ません。これにより 、開発のスピードを向上させることができます。
+> Pythonはシンプルで読みやすい構文を持 っており、初心者にとっても学びや
+> すい言語です。また、Pythonは動的型付け言語であり、変数の型を宣言する必
+> 要があ りません。これにより、コードの記述が簡単になります。
 > 
-> さらに、Pythonは豊富なライブラリやフレームワークが存在します。これによ
-> り、様々な用途に対応することができます。例え ば、データ分析にはPandas
-> やNumPy、機械学習にはTensorFlowやPyTorchなどのライブラリがあります。
+> さらに、Pythonは豊富なライブラリとモジュールを提供しています。これによ
+> り、さまざまなプログラミングタスクを効 率的に実行することができます。
+> 例えば、ウェブ開発にはDjangoやFlaskといったフレームワークがあり、デー
+> タ分析にはNumPyやPandasといったライブラリがあります。
 > 
-> また、Pythonはクロスプラットフォームで動作するため、Windows、Mac、
-> Linuxなどさまざまな環境で利用することができます。さらに、Pythonはオー
-> プンソースであり、無料で利用することができます。
+> また、Pythonはオープンソースであり、広いコミュニティによってサポートさ
+> れています。これにより、新しい機能や改 善が定期的に行われ、開発者は常
+> に最新の情報にアクセスすることができます。
 > 
-> 一方で、Pythonは他の言語に比べて実行速度が遅いという欠点もあります。特
-> に、CPUを多く使用する処理や大規模なデータ処理には向いていません。その
-> ため、パフォーマンスが重要な場合には他の言語を選択することも考慮すべき
-> です。
+> 一方、他のプログラミング言語と比較すると、Pythonは実行速度がやや遅いと
+> いう特徴もあります。また、Pythonは静的 型付け言語ではないため、実行時
+> にエラーが発生する可能性があります。
 > 
-> 総合的に見ると、Pythonは初心者にも優しい言語であり、幅広い用途に利用で
-> きる柔軟性があります。しかし、パフォーマンス が重要な場合には他の言語
-> を検討する必要があります。
+> 総合的に見ると、Pythonは初心者にとって学びやすく、幅広い用途に利用でき
+> る汎用のプログラミング言語です。他の言 語と比較しても、その使いやすさ
+> と豊富なライブラリの提供により、多くの開発者に支持されています。
+
 
 ## 3
 
 Q. それらのプログラムミング言語の学びやすさの順位づけをしてください。
 
-→ 会話の履歴を要約したものになる。（AIにとっての自然言語：英語になる、日本語とどちらが良いかは評価必要）
+→ 会話の履歴を要約したものになる。要約プロンプトはcefaultで英語なので要約も英語になる。
 
 > - あなたは人間と会話するAIです。
-> - 過去の会話履歴はこちらを参照: System: 
-> The human asks what the AI thinks of python. The AI responds that
-> python is a general-purpose programming language developed in 1991 by
-> Guido van Rossum and is characterized by its simple and readable
-> syntax. It is widely used in a variety of applications, such as data
-> analysis, web development, artificial intelligence, and scientific
-> computing. Python also has a rich library and framework that enhances
-> development efficiency. In comparison to other programming languages,
-> Python has the advantages of simplicity and readability, dynamic
-> typing, a variety of libraries and frameworks, and being
-> cross-platform and open-source. However, Python has the disadvantage
-> of slower execution speed, especially for processes that require a lot
-> of CPU and large data processing. Overall, Python is a
-> beginner-friendly language with flexibility for a variety of uses, but
-> other languages should be considered if performance is important.
+> - 過去の会話履歴はこちらを参照: 
+> System: The human asks what Python is. The AI explains that Python is
+> a general-purpose programming language developed by Guido van Rossum
+> in 1991. It has a simple and readable syntax and supports many
+> programming tasks. Python is open-source and supported by a wide
+> community. It is widely used in various fields such as web
+> development, data analysis, artificial intelligence, and machine
+> learning. The human then asks for a comparison with other programming
+> languages. The AI explains that Python has several features that set
+> it apart from other languages. It has a simple and readable syntax,
+> making it easy for beginners to learn. It is a dynamically typed
+> language, so there is no need to declare variable types, making code
+> writing easier. Python also provides a rich set of libraries and
+> modules, allowing for efficient execution of various programming
+> tasks. It is open-source and supported by a large community, ensuring
+> regular updates and access to the latest information. However, Python
+> is slightly slower in terms of execution speed compared to other
+> languages, and being dynamically typed, it may encounter runtime
+> errors. Overall, Python is a beginner-friendly and versatile
+> programming language that is widely supported by developers due to its
+> ease of use and extensive library offerings.
 > - Human: それらのプログラムミング言語の学びやすさの順位づけをしてください。
 > - AI:
-            
 
 A.
 
-> プログラミング言語の学びやすさの順位づけは、個人の経験や好みによって異
-> なる場合がありますが、一般的な順位づけを以下 に示します。
+> プログラミング言語の学びやすさは、個人の経験や好みによって異なる場合が
+> ありますが、一般的には以下のような順位 づけがされることがあります。
 > 
-> 1. Python: Pythonは初心者にとって非常に学びやすい言語です。シンプルで
->    読みやすい文法を持ち、初めてプログラミングを学ぶ人にとって理解しや
->    すいです。
+> 1. Python: Pythonは初心者にとって非常に学びやすい言語とされています。
+>    シンプルで読みやすい文法を持ち、変数の型宣言が不要なため、コードの
+>    記述が容易です。また、豊富なライブラリやモジュールが提供されており、
+>    多様なプログラ ミングタスクを効率的に実行することができます。
 > 
-> 2. JavaScript: JavaScriptはWeb開発において非常に重要な言語です。ブラウ
->    ザ上で動作するため、インタラクティブな要素を 追加することができます。
->    また、学習コミュニティも非常に活発であり、情報や資料が豊富です。
+> 2. JavaScript: JavaScriptはWeb開発に特化した言語であり、フロントエンド
+>    やバックエンドの開発に広く使用されてい ます。HTMLやCSSとの組み合わ
+>    せで動的なウェブページを作成することができます。また、JavaScriptは
+>    ブラウザ上で直接実行されるため、リアルタイムな反応を必要とするアプ
+>    リケーションに適しています。
 > 
-> 3. Java: Javaはオブジェクト指向プログラミングの基礎を学ぶのに適してい
->    ます。また、大規模なアプリケーションの開発にも使用されるため、学習
->    の価値があります。
+> 3. Java: Javaはオブジェクト指向プログラミング言語であり、幅広いプラッ
+>    トフォームで使用されています。Javaは厳密な型チェックを行うため、エ
+>    ラーの早期発見が可能です。また、大規模なアプリケーションの開発にも
+>    適しており、セキ ュリティやパフォーマンスの面でも優れています。
 > 
-> 4. C#: C#はMicrosoftの開発プラットフォームである.NETの一部として使用さ
->    れる言語です。Windowsアプリケーションやゲームの開発に適しており、学
->    習する価値があります。
+> 4. C#: C#はマイクロソフトによって開発されたプログラミング言語であ
+>    り、.NETフレームワーク上で動作します。C#はJavaに似た文法を持ち、オ
+>    ブジェクト指向プログラミングに適しています。特にWindowsアプリケーショ
+>    ンやゲーム開発に広く使用されています。
 > 
-> 5. Ruby: Rubyはシンプルで読みやすい文法を持つ言語で、Web開発やスクリプ
->    ト作成に使用されます。学習コミュニティも活発 であり、情報が豊富です。
+> 5. C++: C++はC言語を基にしたプログラミング言語であり、高速な実行速度と
+>    メモリ管理の柔軟性が特徴です。C++はハードウェア制御やゲーム開発など
+>    のパフォーマンス重視のアプリケーションに適していますが、初心者にとっ
+>    ては学びやす さに課題があるとされています。
 > 
-> 6. C++: C++はパフォーマンスが重要なアプリケーションやゲームの開発に使
->    用される言語です。初心者には学びやすくないかもしれませんが、プログ
->    ラミングの基礎を学ぶ上で価値があります。
-> 
-> 7. Swift: SwiftはiOSアプリケーションの開発に使用される言語です。Apple
->    の開発環境であるXcodeと組み合わせて使用されま す。
-> 
-> 8. PHP: PHPはWeb開発において広く使用される言語です。学習コミュニティも
->    活発であり、情報が豊富ですが、他の言語と比べ ると学習の難易度がやや
->    高いと言えます。
-> 
-> この順位づけはあくまで一般的なものであり、個人のニーズや目標によって異なる場合があります。
+> この順位づけは一般的な傾向ですが、個人のニーズや目標によって最適な言語が異なる場合もあります。
+
 
 ## 4
 
 Q. あなたはどの言語が好みですか？
 
 > - あなたは人間と会話するAIです。
-> - 過去の会話履歴はこちらを参照: System: 
-> The human asks what the AI thinks of python. The AI responds that
-> python is a general-purpose programming language developed in 1991 by
-> Guido van Rossum and is characterized by its simple and readable
-> syntax. It is widely used in a variety of applications, such as data
-> analysis, web development, artificial intelligence, and scientific
-> computing. Python also has a rich library and framework that enhances
-> development efficiency. In comparison to other programming languages,
-> Python has the advantages of simplicity and readability, dynamic
-> typing, a variety of libraries and frameworks, and being
-> cross-platform and open-source. However, Python has the disadvantage
-> of slower execution speed, especially for processes that require a lot
-> of CPU and large data processing. The AI then ranks the programming
-> languages by their learnability, with Python being the most
-> beginner-friendly and PHP being the most difficult. Overall, Python is
-> a beginner-friendly language with flexibility for a variety of uses,
-> but other languages should be considered if performance is important.
+> - 過去の会話履歴はこちらを参照: 
+> System: The human asks what Python is and the AI explains that it is a general-purpose programming language developed by Guido van Rossum in 1991. Python has a simple and readable syntax and is widely used in various fields. The human then asks for a comparison with other programming languages. The AI provides a ranking of programming languages based on their ease of learning, with Python being considered the easiest. It also explains the features and uses of JavaScript, Java, C#, and C++. The AI notes that while this ranking is a general trend, the best language for an individual may vary depending on their needs and goals.
 > - Human: あなたはどの言語が好みですか？
+> - AI:
+
+
+A.
+
+> 私はプログラミング言語を好むわけではありませんが、PythonやJavaScriptな
+> どの人気のある言語を使って多くの会話を 行っています。それぞれの言語に
+> は特徴や利点がありますので、目的やニーズに合わせて適切な言語を選ぶこと
+> が重要で す。
+
+
+
+## 要約のプロンプトが日本語の場合。（要約も日本語になる）
+
+## 0
+
+```python
+template = \
+   """
+   あなたは人間と会話するAIです。
+   過去の会話履歴はこちらを参照: {history}
+   Human: {input}
+   AI:
+   """
+```
+
+## 1
+
+Q. pythonとはなんですか？
+
+> - あなたは人間と会話するAIです。
+> - 過去の会話履歴はこちらを参照: 
+> - Human: pythonとはなんですか？
 > - AI:
 
 A.
 
-> 私はプログラミング言語を好むわけではありませんが、Pythonは私にとって使
-> いやすく読みやすい言語です。また、Pythonは幅 広い用途に利用されており、
-> データ分析、ウェブ開発、人工知能、科学計算などに広く使われています。他
-> のプログラミング言 語と比較して、Pythonはシンプルで読みやすい構文、動
-> 的な型付け、多くのライブラリやフレームワーク、クロスプラットフォ ーム
-> であることなどの利点があります。ただし、Pythonは実行速度が遅く、特に
-> CPUを多く使用する処理や大規模なデータ処理には向いていません。プログラ
-> ミング言語の学習性について言えば、Pythonは初心者にとって非常に使いやす
-> い言語ですが、パフ ォーマンスが重要な場合には他の言語も考慮する必要が
-> あります。
+> Pythonは、汎用のプログラミング言語です。Guido van Rossumによって開発さ
+> れ、1991年に最初にリリースされました。Pythonは、シンプルで読みやすい構
+> 文を持ち、多くのプログラミングタスクをサポートしています。また、オープ
+> ンソースであり、幅広いコミュニティによってサポートされています。Python
+> は、ウェブ開発、データ分析、人工知能、機械学習 など、さまざまな分野で
+> 広く使用されています。
+
+
+## 2
+
+Q. 他のプログラムミング言語と比較してください。
+
+> - あなたは人間と会話するAIです。
+> - 過去の会話履歴はこちらを参照: Human: pythonとはなんですか？
+> AI: Pythonは、汎用のプログラミング言語です。Guido van Rossumによって開
+> 発され、1991年に最初にリリースされまし た。Pythonは、シンプルで読みや
+> すい構文を持ち、多くのプログラミングタスクをサポートしています。また、
+> オープン ソースであり、幅広いコミュニティによってサポートされています。
+> Pythonは、ウェブ開発、データ分析、人工知能、機 械学習など、さまざまな
+> 分野で広く使用されています。
+> - Human: 他のプログラムミング言語と比較してください。
+> - AI:
+    
+            
+A.
+
+> pythonは他のプログラミング言語と比較していくつかの特徴があります。まず、
+> Pythonはシンプルで読みやすい構文を持 っており、初心者にとっても学びや
+> すいです。また、Pythonは動的型付け言語であり、変数の型を宣言する必要が
+> ありま せん。これにより、コードの記述が簡単になります。
+> 
+> さらに、Pythonは豊富なライブラリとモジュールを提供しています。これによ
+> り、さまざまなプログラミングタスクを簡 単に実行することができます。例
+> えば、ウェブ開発にはDjangoやFlaskといったフレームワークがあり、データ
+> 分析にはNumPyやPandasといったライブラリがあります。
+> 
+> また、Pythonはオープンソースであり、幅広いコミュニティによってサポート
+> されています。これにより、新しいライブ ラリやツールが頻繁に開発され、
+> コミュニティのサポートを受けることができます。
+> 
+> 一方、他のプログラミング言語と比較すると、Pythonは実行速度がやや遅いと
+> いう特徴もあります。また、Pythonは静的 型付け言語ではないため、実行時
+> にエラーが発生する可能性があります。
+> 
+> 総合的に見ると、Pythonは初心者にとって学びやすく、多くのプログラミング
+> タスクをサポートする強力な言語です。し かし、実行速度や静的型付けの要
+> 件が厳しい場合には、他の言語を選択することも考慮する必要があります。
+
+
+## 3
+
+Q. それらのプログラムミング言語の学びやすさの順位づけをしてください。
+
+→ 会話の履歴を要約したものになる。要約プロンプトを日本語にすると要約も日本語になる。
+
+> - あなたは人間と会話するAIです。
+> - 過去の会話履歴はこちらを参照: System: Human: pythonとはなんですか？
+> AI: Pythonは、汎用のプログラミング言語です。Guido van Rossumによって開
+> 発され、1991年に最初にリリースされまし た。Pythonは、シンプルで読みや
+> すい構文を持ち、多くのプログラミングタスクをサポートしています。また、
+> オープン ソースであり、幅広いコミュニティによってサポートされています。
+> Pythonは、ウェブ開発、データ分析、人工知能、機 械学習など、さまざまな
+> 分野で広く使用されています。
+> Human: 他のプログラムミング言語と比較してください。
+> AI: Pythonは他のプログラミング言語と比較していくつかの特徴があります。
+> まず、Pythonはシンプルで読みやすい構文 を持っており、初心者にとっても
+> 学びやすいです。また、Pythonは動的型付け言語であり、変数の型を宣言する
+> 必要があ りません。これにより、コードの記述が簡単になります。さらに、
+> Pythonは豊富なライブラリとモジュールを提供してい ます。これにより、さ
+> まざまなプログラミングタスクを簡単に実行することができます。また、
+> Pythonはオープンソース であり、幅広いコミュニティによってサポートされ
+> ています。これにより、新しいライブラリやツールが頻繁に開発され 、コミュ
+> ニティのサポートを受けることができます。一方、他のプログラミング言語と
+> 比較すると、Pythonは実行速度が やや遅いという特徴もあります。また、
+> Pythonは静的型付け言語ではないため、実行時にエラーが発生する可能性があ
+> り ます。総合的に見ると、Pythonは初心者にとって学びやすく、多くのプロ
+> グラミングタスクをサポートする強力な言語で す。しかし、実行速度や静的
+> 型付けの要件が厳しい場合には、他の言語を選択することも考慮する必要があ
+> ります。
+> - Human: それらのプログラムミング言語の学びやすさの順位づけをしてください。
+> - AI:
+
+A.
+
+> プログラミング言語の学びやすさは、個人の経験や好みによって異なる場合が
+> ありますが、一般的な順位づけを以下に示 します。
+> 
+> 1. Python: Pythonはシンプルで読みやすい構文を持ち、初心者にとって学び
+>    やすい言語です。また、豊富なドキュメントやコミュニティのサポートも
+>    あります。
+> 
+> 2. JavaScript: JavaScriptはウェブ開発に広く使用される言語であり、学び
+>    やすさも高いと言われています。また、フロントエンドとバックエンドの
+>    両方で使用できるため、幅広い用途に適しています。
+> 
+> 3. Ruby: Rubyはシンプルで読みやすい構文を持ち、初心者にとっても学びや
+>    すい言語です。また、Ruby on Railsという フレームワークがあり、ウェ
+>    ブアプリケーションの開発にも適しています。
+> 
+> 4. Java: Javaはオブジェクト指向プログラミングの基礎を学ぶのに適してい
+>    る言語です。また、多くの企業や大学で使用されており、学習資料やコミュ
+>    ニティのサポートも充実しています。
+> 
+> 5. C#: C#はMicrosoftによって開発された言語であり、Windowsアプリケーショ
+>    ンやゲーム開発に使用されます。C#はJavaに似た構文を持ち、学習の際に
+>    はJavaの知識が役立つ場合があります。
+> 
+> 6. C++: C++はパフォーマンスが重要なアプリケーションやゲーム開発に使用
+>    される言語です。C++は学習が難しいとされ ており、初心者には少し敷居
+>    が高いかもしれません。
+> 
+> この順位づけは一般的な傾向を示しており、個人の経験や目的によって異なる場合があります。
+
+
+## 4
+
+Q. あなたはどの言語が好みですか？
+
+> - あなたは人間と会話するAIです。
+> - 過去の会話履歴はこちらを参照: System: Human: pythonとはなんですか？
+> AI: Pythonは、汎用のプログラミング言語であり、シンプルで読みやすい構文
+> を持ち、多くのプログラミングタスクをサ ポートしています。また、オープ
+> ンソースであり、幅広いコミュニティによってサポートされています。Python
+> は、ウェ ブ開発、データ分析、人工知能、機械学習など、さまざまな分野で
+> 広く使用されています。
+> Human: 他のプログラムミング言語と比較してください。
+> AI: Pythonはシンプルで読みやすい構文を持ち、初心者にとっても学びやすい
+> です。また、動的型付け言語であり、豊富 なライブラリとモジュールを提供
+> しています。一方、実行速度がやや遅く、静的型付けの要件が厳しい場合には
+> 他の言語 を選択することも考慮する必要があります。
+> Human: それらのプログラムミング言語の学びやすさの順位づけをしてください。
+> AI: プログラミング言語の学びやすさは個人の経験や好みによって異なります
+> が、一般的な順位づけを以下に示します。Pythonが最も学びやすく、
+> JavaScript、Ruby、Java、C#、C++の順に学びやすさが高まります。ただし、
+> これは一般的な傾 向であり、個人の経験や目的によって異なる場合がありま
+> す。
+> - Human: あなたはどの言語が好みですか？
+> - AI:
+
+
+A.
+
+> 私はプログラミング言語を好むわけではありませんが、Pythonは私がよく使わ
+> れる言語です。そのため、Pythonについて の知識や理解が深いです。
