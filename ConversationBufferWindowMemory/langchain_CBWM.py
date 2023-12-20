@@ -1,129 +1,78 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""
-OpenAI API と通信するライブラリです。
+# Azure ChatOpenAI
+# https://python.langchain.com/docs/integrations/chat/azure_chat_openai
 
-answer = Lang_Predictor.get_message(question)
+# Memory in LLMCHain
+# https://python.langchain.com/docs/modules/memory/adding_memory
 
-question: 質問文 (文字列）
-answer: 回答文 (文字列）
+# openai: 1.5.0
+# langchain: 0.0.350
 
-"""
+from langchain.chains import LLMChain
+from langchain.chat_models import AzureChatOpenAI
+from langchain.prompts import PromptTemplate
+from langchain.memory import ConversationBufferWindowMemory
 
 import os
 
-if 'OPENAI_API_KEY' not in os.environ:
-    print("環境変数 OPENAI_API_KEY がセットされていません。")
-    exit(-1)
+LLM = AzureChatOpenAI (
+    model_name        = "gpt-3.5-turbo-16k",
+    azure_deployment  = "exam1",
+    azure_endpoint    = "https://exam01.openai.azure.com/",
+    api_version       = "2023-07-01-preview",
+    api_key           = os.getenv("AZURE_OPENAI_API_KEY"),
+    #
+    temperature       = 0, # 出力する単語のランダム性（0から1の範囲） 0であれば毎回返答内容固定
+    n                 = 1, # いくつの返答を生成するか           
+)
 
+# Prompt Template作成
+template = \
+    """
+    あなたは人間と会話するAIです。
+    過去の会話履歴はこちらを参照: {history}
+    Human: {input}
+    AI:
+    """
 
-#################################################################
-# from dotenv import load_dotenv
-# load_dotenv()
+# プロンプトテンプレート
+prompt_template = PromptTemplate (
+    input_variables   = ["history", "input"],  # 入力変数 
+    template          = template,              # テンプレート
+    validate_template = True,                  # 入力変数とテンプレートの検証有無
+)
 
-import openai
-from langchain.llms import OpenAI
-from langchain import LLMChain, PromptTemplate
-from langchain.memory import ConversationBufferWindowMemory
+# 会話の記憶
+memory = ConversationBufferWindowMemory (
+    k = 2,                      # いくつの対話を記録するか
+)
 
-openai.api_type = os.getenv("OPENAI_API_TYPE")
-openai.api_base = os.getenv("OPENAI_API_BASE")
-openai.api_version = os.getenv("OPENAI_API_VERSION")
-openai.api_key = os.getenv("OPENAI_API_KEY")
+# make chain
+chain = LLMChain (
+    llm = LLM,                  # LLMモデル 
+    prompt  = prompt_template,  # プロンプトテンプレート
+    verbose = True,             # プロンプトを表示するか否か
+    memory  = memory,           # メモリ
+)
 
-engine = os.getenv("OPENAI_API_ENGINE")
-model_name = os.getenv("OPENAI_API_MODEL")
+messages = ["pythonとはなんですか？",
+            "他のプログラムミング言語と比較してください。",
+            "それらのプログラムミング言語の学びやすさの順位づけをしてください。",
+            "あなたはどの言語が好みですか？"]
 
-class Lang_Predictor:
+for question in messages:
 
-    def __init__(self, verbose=False, chat_depth=0):
-        """
-        verbose: デバッグ用のprompt表示
-        chat_depth: 会話履歴をいくつ前まで使うか。
-        """
+    # LLM Chain実行
+    answer = chain.predict(input=question)
 
-        #
-        # Prompt Template作成
-        #
-        template = \
-            """
-            あなたは人間と会話するAIです。
-            過去の会話履歴はこちらを参照: {history}
-            Human: {input}
-            AI:
-            """
+    # 出力
+    print(answer)
 
-        # プロンプトテンプレート
-        prompt_template = PromptTemplate(
-            input_variables   = ["history", "input"],  # 入力変数 
-            template          = template,              # テンプレート
-            validate_template = True,                  # 入力変数とテンプレートの検証有無
-        )
+    # chain.memory.chat_memory.messages[n] ← Human, AI, Human, AI, ...
 
-        #
-        # LLM作成
-        #
-        LLM = OpenAI(
-            model_name        = model_name,
-            engine            = engine,
-            temperature       = 0,                  # 出力する単語のランダム性（0から2の範囲） 0であれば毎回返答内容固定
-            n                 = 1,                  # いくつの返答を生成するか           
-            )
-
-        #
-        # memor
-        #
-        memory = ConversationBufferWindowMemory(
-            k = chat_depth,                         # いくつの対話を記録するか
-        )
-        
-        #
-        # LLM Chain
-        #
-        self.chain = LLMChain (
-            llm     = LLM,             # LLMモデル 
-            prompt  = prompt_template, # プロンプトテンプレート
-            verbose = verbose,         # プロンプトを表示するか否か
-            memory  = memory,          # メモリ
-        )
-        
-        
-    def get_message(self, question):
-
-        answer = self.chain.predict(input=question)
-
-        return answer
-
-
-
-def main():
-
-    predictor = Lang_Predictor(verbose=True, chat_depth=2)
-    
-    messages = ["pythonとはなんですか？",
-                "他のプログラムミング言語と比較してください。",
-                "それらのプログラムミング言語の学びやすさの順位づけをしてください。",
-                "あなたはどの言語が好みですか？"]
-
-    for question in messages:
-
-        # ユーザ
-        # LLM Chain実行
-        answer = predictor.get_message(question)
-
-        # 出力
-        print(answer)
-
-        # chain.memory.chat_memory.messages[n] ← Human, AI, Human, AI, ...
-    
-        import pdb; pdb.set_trace()
-
-
-if __name__ == "__main__":
-    main()
-        
-# import pdb; pdb.set_trace()
+    import pdb; pdb.set_trace()
 
 ### Local Variables: ###
 ### truncate-lines:t ###
