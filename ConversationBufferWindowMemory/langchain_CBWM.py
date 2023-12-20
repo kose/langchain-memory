@@ -7,8 +7,8 @@
 # Memory in LLMCHain
 # https://python.langchain.com/docs/modules/memory/adding_memory
 
-# openai: 1.5.0
-# langchain: 0.0.350
+# openai: 1.6.0
+# langchain: 0.0.351
 
 from langchain.chains import LLMChain
 from langchain.chat_models import AzureChatOpenAI
