@@ -7,104 +7,103 @@
 # Memory in LLMCHain
 # https://python.langchain.com/docs/modules/memory/adding_memory
 
-# openai: 1.6.0
+# openai: 1.8.0
 # langchain: 0.0.351
 
+import os
 from langchain.chains import LLMChain
 from langchain.chat_models import AzureChatOpenAI
 from langchain.prompts import PromptTemplate
 from langchain.memory import ConversationSummaryBufferMemory
 
-import os
+class AzureOpenAIChat:
+    def __init__(self, verbose=False):
 
-LLM = AzureChatOpenAI (
-    model_name        = "gpt-3.5-turbo-16k",
-    azure_deployment  = "exam1",
-    azure_endpoint    = "https://exam01.openai.azure.com/",
-    api_version       = "2023-07-01-preview",
-    api_key           = os.getenv("AZURE_OPENAI_API_KEY"),
-    #
-    temperature       = 0, # 出力する単語のランダム性（0から1の範囲） 0であれば毎回返答内容固定
-    n                 = 1, # いくつの返答を生成するか           
-)
+        self.verbose = verbose
+        
+        self.llm = AzureChatOpenAI (
+            model_name="gpt-3.5-turbo-16k",
+            azure_deployment="exam1",
+            azure_endpoint="https://exam01.openai.azure.com/",
+            api_version="2023-07-01-preview",
+            api_key=os.getenv("AZURE_OPENAI_API_KEY"),
+            temperature=0,
+            n=1,
+        )
 
-# Prompt Template作成
-template = \
-    """
-    あなたは人間と会話するAIです。
-    過去の会話履歴はこちらを参照: {history}
-    Human: {input}
-    AI:
-    """
+        self.prompt_template = PromptTemplate (
+            input_variables=["history", "input"],
+            template="""
+                あなたは人間と会話するAIです。
+                過去の会話履歴はこちらを参照: {history}
+                Human: {input}
+                AI:
+                """,
+            validate_template=True
+        )
 
-# https://zenn.dev/miketako3/articles/66ace6a67df338
+        self.summary_prompt = PromptTemplate (
+            input_variables=["summary", "new_lines"],
+            template='''
+            会話の行を徐々に要約し、前の要約に追加して新しい要約を返してください。
 
-#
-# 要約するプロンプトを日本語にする。→ 要約も日本語になる。
-#
-summary_prompt = PromptTemplate(
-    input_variables=["summary", "new_lines"],
-    template='''
-会話の行を徐々に要約し、前の要約に追加して新しい要約を返してください。
+            例：
+            現在の要約：
+            人間はAIに人工知能についてどう思うか尋ねます。AIは人工知能が善の力だと考えています。
+            新しい会話の行：
+            人間：なぜあなたは人工知能が善の力だと思いますか？
+            AI：人工知能は人間が最大限の潜在能力を発揮するのを助けるからです。
+            新しい要約：
+            人間はAIに人工知能についてどう思うか尋ねます。AIは人工知能が善の力だと考えており、それは人間が最大限の潜在能力を発揮するのを助けるからです。
+            例の終わり
 
-例：
-現在の要約：
-人間はAIに人工知能についてどう思うか尋ねます。AIは人工知能が善の力だと考えています。
-新しい会話の行：
-人間：なぜあなたは人工知能が善の力だと思いますか？
-AI：人工知能は人間が最大限の潜在能力を発揮するのを助けるからです。
-新しい要約：
-人間はAIに人工知能についてどう思うか尋ねます。AIは人工知能が善の力だと考えており、それは人間が最大限の潜在能力を発揮するのを助けるからです。
-例の終わり
+            現在の要約：
+            {summary}
+            新しい会話の行：
+            {new_lines}
+            新しい要約：
+            '''
+        )
 
-現在の要約：
-{summary}
-新しい会話の行：
-{new_lines}
-新しい要約：
-    ''',
-)
+        self.memory = ConversationSummaryBufferMemory (
+            llm=self.llm,
+            max_token_limit=500,
+            prompt=self.summary_prompt
+        )
 
+        self.chain = LLMChain (
+            llm=self.llm,
+            prompt=self.prompt_template,
+            verbose=self.verbose,
+            memory=self.memory
+        )
 
-# プロンプトテンプレート
-prompt_template = PromptTemplate (
-    input_variables   = ["history", "input"],  # 入力変数 
-    template          = template,              # テンプレート
-    validate_template = True,                  # 入力変数とテンプレートの検証有無
-)
+    def ask (self, question):
+        return self.chain.predict(input=question)
 
-# 会話の記憶
-memory = ConversationSummaryBufferMemory (
-    llm = LLM,                  # 文章要約に用いるLLM (default: text-davinci-003)
-    max_token_limit=500,        # これを超えたら要約する
-    prompt=summary_prompt       # プロンプトを上書き
-)
+
+def main():
+    # インスタンスの作成
+    azure_chat = AzureOpenAIChat(verbose=True)
 
-# make chain
-chain = LLMChain (
-    llm = LLM,                  # LLMモデル 
-    prompt  = prompt_template,  # プロンプトテンプレート
-    verbose = True,             # プロンプトを表示するか否か
-    memory  = memory,           # メモリ
-)
+    # メッセージに対して応答を生成
+    messages = [
+        "pythonとはなんですか？",
+        "他のプログラムミング言語と比較してください。",
+        "それらのプログラムミング言語の学びやすさの順位づけをしてください。",
+        "あなたはどの言語が好みですか？"
+    ]
 
-messages = ["pythonとはなんですか？",
-            "他のプログラムミング言語と比較してください。",
-            "それらのプログラムミング言語の学びやすさの順位づけをしてください。",
-            "あなたはどの言語が好みですか？"]
+    for question in messages:
+        answer = azure_chat.ask(question)
+        print(answer)
 
-for question in messages:
+        import pdb; pdb.set_trace()
 
-    # LLM Chain実行
-    answer = chain.predict(input=question)
-
-    # 出力
-    print(answer)
-
-    # chain.memory.chat_memory.messages[n] ← Human, AI, Human, AI, ...
-
-    import pdb; pdb.set_trace()
+if __name__ == "__main__":
+    main()
 
 ### Local Variables: ###
 ### truncate-lines:t ###
 ### End: ###
+    
