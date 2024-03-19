@@ -25,7 +25,7 @@ class AzureOpenAIChat:
             model_name="gpt-3.5-turbo-16k",
             azure_deployment="exam1",
             azure_endpoint="https://exam01.openai.azure.com/",
-            api_version="2023-07-01-preview",
+            api_version="2024-02-15-preview",
             api_key=os.getenv("AZURE_OPENAI_API_KEY"),
             temperature=0,
             n=1,
