@@ -7,12 +7,12 @@
 # Memory in LLMCHain
 # https://python.langchain.com/docs/modules/memory/adding_memory
 
-# openai: 1.8.0
-# langchain: 0.0.351
+# langchain         0.2.6
+# langchain-openai  0.1.14
 
 import os
-from langchain.chains import LLMChain
-from langchain.chat_models import AzureChatOpenAI
+from langchain.chains import ConversationChain
+from langchain_openai import AzureChatOpenAI
 from langchain.prompts import PromptTemplate
 from langchain.memory import ConversationSummaryBufferMemory
 
@@ -71,7 +71,8 @@ class AzureOpenAIChat:
             prompt=self.summary_prompt
         )
 
-        self.chain = LLMChain (
+        # self.chain = LLMChain (
+        self.chain = ConversationChain (
             llm=self.llm,
             prompt=self.prompt_template,
             verbose=self.verbose,
